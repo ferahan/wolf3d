@@ -562,7 +562,7 @@ void DrawMainMenu(void)
 		#ifndef JAPAN
 
 		#ifdef SPANISH
-		_fstrcpy(&MainMenu[backtodemo].string,STR_GAME);
+		_fstrcpy(&MainMenu[backtodemo].string[0],STR_GAME);
 		#else
 		_fstrcpy(&MainMenu[backtodemo].string[8],STR_GAME);
 		#endif
@@ -581,7 +581,7 @@ void DrawMainMenu(void)
 	{
 		#ifndef JAPAN
 		#ifdef SPANISH
-		_fstrcpy(&MainMenu[backtodemo].string,STR_BD);
+		_fstrcpy(&MainMenu[backtodemo].string[0],STR_BD);
 		#else
 		_fstrcpy(&MainMenu[backtodemo].string[8],STR_DEMO);
 		#endif
