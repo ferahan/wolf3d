@@ -157,6 +157,34 @@ void ControlMovement (objtype *ob)
 
 	oldx = player->x;
 	oldy = player->y;
+	
+	if (Keyboard[sc_A]) 
+	{
+	//
+	// strafe left
+	//
+		if (strafe < 0)
+		{
+			angle = ob->angle + ANGLES/4;
+			if (angle >= ANGLES)
+				angle -= ANGLES;
+			Thrust (angle,-strafe*MOVESCALE);	// move to left
+		}
+	}
+
+	if (Keyboard[sc_D]) 
+	{
+	//
+	// strafe right
+	//
+		if (strafe > 0)
+		{
+			angle = ob->angle - ANGLES/4;
+			if (angle < 0)
+				angle += ANGLES;
+			Thrust (angle,strafe*MOVESCALE);	// move to right
+		}
+	}
 
 //
 // side to side move

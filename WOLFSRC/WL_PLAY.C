@@ -74,7 +74,7 @@ memptr		demobuffer;
 //
 // curent user input
 //
-int			controlx,controly;		// range from -100 to 100 per tic
+int			controlx,controly,strafe;		// range from -100 to 100 per tic
 boolean		buttonstate[NUMBUTTONS];
 
 
@@ -350,6 +350,10 @@ void PollKeyboardMove (void)
 			controlx -= RUNMOVE*tics;
 		if (Keyboard[dirscan[di_east]])
 			controlx += RUNMOVE*tics;
+		if (Keyboard[sc_A])
+			strafe -= RUNMOVE*tics;
+		if (Keyboard[sc_D])
+			strafe += RUNMOVE*tics;
 	}
 	else
 	{
@@ -361,6 +365,10 @@ void PollKeyboardMove (void)
 			controlx -= BASEMOVE*tics;
 		if (Keyboard[dirscan[di_east]])
 			controlx += BASEMOVE*tics;
+		if (Keyboard[sc_A])
+			strafe -= BASEMOVE*tics;
+		if (Keyboard[sc_D])
+			strafe += BASEMOVE*tics;
 	}
 }
 
@@ -484,6 +492,7 @@ void PollControls (void)
 
 	controlx = 0;
 	controly = 0;
+	strafe = 0;
 	memcpy (buttonheld,buttonstate,sizeof(buttonstate));
 	memset (buttonstate,0,sizeof(buttonstate));
 
@@ -501,12 +510,14 @@ void PollControls (void)
 
 		controlx = *demoptr++;
 		controly = *demoptr++;
+		strafe = *demoptr++;
 
 		if (demoptr == lastdemoptr)
 			playstate = ex_completed;		// demo is done
 
 		controlx *= (int)tics;
 		controly *= (int)tics;
+		strafe *= (int)tics;
 
 		return;
 	}
@@ -549,6 +560,11 @@ void PollControls (void)
 	else if (controly < min)
 		controly = min;
 
+	if (strafe > max)
+		strafe = max;
+	else if (strafe < min)
+		strafe = min;
+
 	if (demorecord)
 	{
 	//
@@ -556,6 +572,7 @@ void PollControls (void)
 	//
 		controlx /= (int)tics;
 		controly /= (int)tics;
+		strafe /= (int)tics;
 
 		buttonbits = 0;
 
@@ -569,12 +586,14 @@ void PollControls (void)
 		*demoptr++ = buttonbits;
 		*demoptr++ = controlx;
 		*demoptr++ = controly;
+		*demoptr++ = strafe;
 
 		if (demoptr >= lastdemoptr)
 			Quit ("Demo buffer overflowed!");
 
 		controlx *= (int)tics;
 		controly *= (int)tics;
+		strafe *= (int)tics;
 	}
 }
 
