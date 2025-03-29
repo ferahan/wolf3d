@@ -510,14 +510,12 @@ void PollControls (void)
 
 		controlx = *demoptr++;
 		controly = *demoptr++;
-		strafe = *demoptr++;
 
 		if (demoptr == lastdemoptr)
 			playstate = ex_completed;		// demo is done
 
 		controlx *= (int)tics;
 		controly *= (int)tics;
-		strafe *= (int)tics;
 
 		return;
 	}
