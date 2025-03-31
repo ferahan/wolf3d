@@ -57,7 +57,7 @@ byte		update[UPDATESIZE];
 //
 boolean		mouseenabled,joystickenabled,joypadenabled,joystickprogressive;
 int			joystickport;
-int			dirscan[4] = {sc_UpArrow,sc_RightArrow,sc_DownArrow,sc_LeftArrow};
+int			dirscan[4] = {sc_W,sc_D,sc_S,sc_A};
 int			buttonscan[NUMBUTTONS] =
 			{sc_Control,sc_Alt,sc_RShift,sc_Space,sc_1,sc_2,sc_3,sc_4};
 int			buttonmouse[4]={bt_attack,bt_strafe,bt_use,bt_nobutton};
@@ -347,12 +347,8 @@ void PollKeyboardMove (void)
 		if (Keyboard[dirscan[di_south]])
 			controly += RUNMOVE*tics;
 		if (Keyboard[dirscan[di_west]])
-			controlx -= RUNMOVE*tics;
-		if (Keyboard[dirscan[di_east]])
-			controlx += RUNMOVE*tics;
-		if (Keyboard[sc_A])
 			strafe -= RUNMOVE*tics;
-		if (Keyboard[sc_D])
+		if (Keyboard[dirscan[di_east]])
 			strafe += RUNMOVE*tics;
 	}
 	else
@@ -362,12 +358,8 @@ void PollKeyboardMove (void)
 		if (Keyboard[dirscan[di_south]])
 			controly += BASEMOVE*tics;
 		if (Keyboard[dirscan[di_west]])
-			controlx -= BASEMOVE*tics;
-		if (Keyboard[dirscan[di_east]])
-			controlx += BASEMOVE*tics;
-		if (Keyboard[sc_A])
 			strafe -= BASEMOVE*tics;
-		if (Keyboard[sc_D])
+		if (Keyboard[dirscan[di_east]])
 			strafe += BASEMOVE*tics;
 	}
 }
