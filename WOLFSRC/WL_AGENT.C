@@ -158,7 +158,7 @@ void ControlMovement (objtype *ob)
 	oldx = player->x;
 	oldy = player->y;
 	
-	if (Keyboard[sc_A]) 
+	if (Keyboard[dirscan[di_west]])
 	{
 	//
 	// strafe left
@@ -172,7 +172,7 @@ void ControlMovement (objtype *ob)
 		}
 	}
 
-	if (Keyboard[sc_D]) 
+	if (Keyboard[dirscan[di_east]])
 	{
 	//
 	// strafe right
