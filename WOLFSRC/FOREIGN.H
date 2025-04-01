@@ -64,8 +64,8 @@
 #define STR_CFIRE	"Fire"
 #define STR_CSTRAFE	"Strafe"
 
-#define	STR_LEFT	"Left"
-#define	STR_RIGHT	"Right"
+#define	STR_LEFT	"S.Left"
+#define	STR_RIGHT	"S.Rght"
 #define	STR_FRWD	"Frwd"
 #define	STR_BKWD	"Bkwrd"
 #define	STR_THINK	"Thinking"
