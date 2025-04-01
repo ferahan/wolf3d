@@ -2110,7 +2110,7 @@ void DefineJoyBtns(void)
 //
 void DefineKeyBtns(void)
 {
- CustomCtrls keyallowed={1,1,1,1};
+ CustomCtrls keyallowed={1,1,1,0};
  EnterCtrlData(8,&keyallowed,DrawCustKeybd,PrintCustKeybd,KEYBOARDBTNS);
 }
 

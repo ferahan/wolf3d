@@ -59,7 +59,7 @@ boolean		mouseenabled,joystickenabled,joypadenabled,joystickprogressive;
 int			joystickport;
 int			dirscan[4] = {sc_W,sc_D,sc_S,sc_A};
 int			buttonscan[NUMBUTTONS] =
-			{sc_Control,sc_Alt,sc_RShift,sc_Space,sc_1,sc_2,sc_3,sc_4};
+			{sc_Control,key_Nokey,sc_RShift,sc_Space,sc_1,sc_2,sc_3,sc_4};
 int			buttonmouse[4]={bt_attack,bt_strafe,bt_use,bt_nobutton};
 int			buttonjoy[4]={bt_attack,bt_strafe,bt_use,bt_run};
 
