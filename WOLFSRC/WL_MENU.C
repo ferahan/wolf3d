@@ -346,17 +346,17 @@ void US_ControlPanel(byte scancode)
 	//
 	switch(scancode)
 	{
-		case sc_F1:
-			#ifdef SPEAR
-			BossKey();
-			#else
-			#ifdef GOODTIMES
-			BossKey();
-			#else
-			HelpScreens();
-			#endif
-			#endif
-			goto finishup;
+		//case sc_F1:
+			//#ifdef SPEAR
+			//BossKey();
+			//#else
+			//#ifdef GOODTIMES
+			//BossKey();
+			//#else
+			//HelpScreens();
+			//#endif
+			//#endif
+			//goto finishup;
 
 		case sc_F2:
 			CP_SaveGame(0);
